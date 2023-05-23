@@ -6,6 +6,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
+var http = require('http');
 
 //STEAM CONFIG
 var passport = require('passport');
@@ -34,7 +35,7 @@ passport.use(new SteamStrategy({
 //END STEAM CONFIG
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var usersRouter = require('./routes/user');
 var testAPIRouter = require('./routes/testAPI');
 
 var app = express();
@@ -73,17 +74,42 @@ app.use('/testAPI', testAPIRouter);
 app.get('/api', (req, res) => {
   res.send(req.user);
 });
+
 app.get('/api/auth/steam', passport.authenticate('steam', {failureRedirect: '/api'}), function (req, res) {
   res.redirect('/api');
 });
+
 app.get('/api/auth/steam/return', passport.authenticate('steam', {failureRedirect: '/api'}), function (req, res) {
   session = req.session;
   res.redirect('http://localhost:3000/profile');
 });
+
 app.get('/api/user', (req, res) => {
   // console.log(session.passport);
   res.json(session.passport.user);
 });
+
+app.get('/games', (req, res) => {
+  // res.send("Carregando jogos");
+
+  const key = process.env.API_STEAM_KEY;
+  const steamid = session.passport.user.id;
+  const include_appinfo = true;
+
+  const URL = `/IPlayerService/GetOwnedGames/v1/?key=${key}&steamid=${steamid}&include_appinfo=${include_appinfo}&format=json`;
+
+  var options = {
+    host: 'http://api.steampowered.com',
+    path: URL,
+    method: 'GET'
+  };
+
+  http.request(options, (res) => {
+    console.log(res);
+  }).on('error', err => {
+    console.log('Error: ', err.message);
+  });
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
