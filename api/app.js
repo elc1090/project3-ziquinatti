@@ -87,11 +87,14 @@ app.get('/api/auth/steam/return', passport.authenticate('steam', {failureRedirec
 });
 
 app.get('/api/user', (req, res) => {
-  // console.log(session.passport);
-  if(session)
+  // console.log(session.passport.user);
+  if(session.passport) {
+    // console.log('Session found');
     res.json(session.passport.user);
-  else
-    res.json
+  } else {
+    // console.log('Not session')
+    res.json({ message: 'Not session' });
+  }
 });
 
 app.get('/games', (req, res) => {
@@ -105,7 +108,8 @@ app.get('/games', (req, res) => {
 
   axios.get(URL)
     .then(response => {
-      console.log(response.data);
+      // console.log(response.data);
+      res.send(response.data);
     })
     .catch(error => {
       console.log(error);

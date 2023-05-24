@@ -1,0 +1,19 @@
+.jogo {
+    background-color: var(--dark-blue);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 12px 20px;
+    width: 25%;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.jogo img {
+    margin-right: 12px;
+    border-radius: 5px;
+}
+
+.jogo p{
+    margin: 0;
+}

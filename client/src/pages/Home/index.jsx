@@ -1,12 +1,11 @@
+import { useUsuario } from "context/Usuario";
+
 export default function Home() {
-    function Logar() {
-        window.location.href = 'http://localhost:9000/api/auth/steam';
-    }
+    const { usuario } = useUsuario();
 
     return(
-        <div>
-            <p>Clique no botão para logar na Steam</p>
-            <button onClick={Logar}>Login</button>
-        </div>
+        <section>
+            <p>Olá, {usuario ? usuario.displayName : 'loading...'}</p>
+        </section>
     );
 }
