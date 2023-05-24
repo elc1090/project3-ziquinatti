@@ -13,7 +13,7 @@ export default function Profile() {
         const fetchData = async () => {
             const resp = await fetch('http://localhost:9000/api/user').catch (error => console.log('Ocorreu um erro!!'));
             const dados = await resp.json();
-            console.log(dados);
+            // console.log(dados);
             if(dados.message){
                 return null;
             }
@@ -24,17 +24,17 @@ export default function Profile() {
             const resp = await fetch('http://localhost:9000/games');
 
             const dados = await resp.json();
-            console.log(dados.response.games);
+            // console.log(dados.response.games);
             return dados.response.games;
         }
 
         if(!usuario){
             fetchData()
                 .then(dados => startUser(dados));
-            
-            fetchGames()
-                .then(dados => loadJogos(dados));
         }
+
+        fetchGames()
+            .then(dados => loadJogos(dados));
     }, []);
 
     return(

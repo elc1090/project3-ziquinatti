@@ -1,7 +1,6 @@
 .jogo {
     background-color: var(--dark-blue);
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     padding: 12px 20px;
     width: 25%;
@@ -9,11 +8,33 @@
     border-radius: 10px;
 }
 
-.jogo img {
+.jogo button {
+    margin-left: auto;
+    font-size: 2em;
+    color: var(--light-gray);
+    background-color: var(--dark-blue);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition-duration: 0.5s;
+}
+
+.jogo button:hover {
+    background-color: var(--light-blue);
+    color: white;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.info img {
     margin-right: 12px;
     border-radius: 5px;
 }
 
-.jogo p{
+.info p{
     margin: 0;
 }

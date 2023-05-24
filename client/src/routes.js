@@ -4,18 +4,23 @@ import Home from 'pages/Home';
 import Profile from 'pages/Profile';
 import UsuarioProvider from 'context/Usuario';
 import JogosProvider from 'context/Jogos';
+import ToPlay from 'pages/ToPlay';
+import ToPlayProvider from 'context/ToPlay';
 
 function AppRoutes() {
 	return (
 		<BrowserRouter basename={process.env.PUBLIC_URL}>
 			<UsuarioProvider>
 				<JogosProvider>
-					<Routes>
-						<Route path='/' element={<PaginaBase />}>
-							<Route index element={<Home />}/>
-							<Route path='/profile' element={<Profile />}/>
-						</Route>
-					</Routes>
+					<ToPlayProvider>
+						<Routes>
+							<Route path='/' element={<PaginaBase />}>
+								<Route index element={<Home />}/>
+								<Route path='/profile' element={<Profile />}/>
+								<Route path='/toplay' element={<ToPlay />}/>
+							</Route>
+						</Routes>
+					</ToPlayProvider>
 				</JogosProvider>
 			</UsuarioProvider>
 		</BrowserRouter>

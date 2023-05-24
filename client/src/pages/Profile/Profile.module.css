@@ -1,11 +1,12 @@
 .perfil{
     display: flex;
     align-items: start;
-    margin: 16px 80px 44px 80px;
+    padding: 16px 80px 16px 80px;
+    background-image: linear-gradient(to right, var(--blue), var(--light-blue), var(--blue));
 }
 
 .perfil img {
-    border: 5px solid rgb(255, 0, 0);
+    border: 10px solid var(--gray);
     border-radius: 5px;
     box-sizing: border-box;
 }
@@ -24,9 +25,9 @@
 .biblio{
     text-align: center;
     font-size: 1.8em;
-
-    border-top: 5px solid var(--gray);
-    padding-top: 16px;
-    margin-left: 20%;
-    margin-right: 20%;
+    border-width: 5px;
+    border-style: solid;
+    border-image: linear-gradient(to right, var(--blue), var(--gray), var(--blue)) 100% 1 0 0;
+    padding: 12px 0px;
+    margin: 0px;
 }

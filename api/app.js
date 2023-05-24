@@ -98,8 +98,6 @@ app.get('/api/user', (req, res) => {
 });
 
 app.get('/games', (req, res) => {
-  // res.send("Carregando jogos");
-
   const key = process.env.API_STEAM_KEY;
   const steamid = session.passport.user.id;
   const include_appinfo = true;
@@ -109,6 +107,20 @@ app.get('/games', (req, res) => {
   axios.get(URL)
     .then(response => {
       // console.log(response.data);
+      res.send(response.data);
+    })
+    .catch(error => {
+      console.log(error);
+    })
+});
+
+app.get('/game/:appId', (req, res) => {
+  const appid = req.params.appId;
+
+  const URL = `https://store.steampowered.com/api/appdetails?appids=${appid}`;
+
+  axios.get(URL)
+    .then(response => {
       res.send(response.data);
     })
     .catch(error => {

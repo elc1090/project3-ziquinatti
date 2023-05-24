@@ -19,17 +19,21 @@
 
 .navbar a{
     text-decoration: none;
-    color: white;
+    color: var(--light-gray);
     margin-left: 8px;
     padding: 10px 12px;
 }
 
 .navbar a:hover{
-    color: darkblue;
+    color: white;
 }
 
 .login {
     margin-left: auto;
     text-decoration: none;
+    color: var(--light-gray);
+}
+
+.login:hover {
     color: white;
 }

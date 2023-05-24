@@ -1,0 +1,26 @@
+.jogo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: left;
+    background-color: var(--dark-blue);
+    padding: 24px;
+    margin-bottom: 12px;
+    max-width: 75%;
+}
+
+.jogo img {
+    max-width: 50%;
+    min-width: 200px;
+}
+
+.info {
+    max-width: 50%;
+    padding-left: 24px;
+    box-sizing: border-box;
+    text-align: justify;
+}
+
+.info h3{
+    margin: 0;
+}
