@@ -6,7 +6,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
-var http = require('http');
+var axios = require('axios');
 
 //STEAM CONFIG
 var passport = require('passport');
@@ -37,6 +37,7 @@ passport.use(new SteamStrategy({
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/user');
 var testAPIRouter = require('./routes/testAPI');
+var listsRouter = require('./routes/lists.js');
 
 var app = express();
 
@@ -69,6 +70,7 @@ var session;
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/testAPI', testAPIRouter);
+app.use('/lists', listsRouter);
 
 // Routes
 app.get('/api', (req, res) => {
@@ -86,7 +88,10 @@ app.get('/api/auth/steam/return', passport.authenticate('steam', {failureRedirec
 
 app.get('/api/user', (req, res) => {
   // console.log(session.passport);
-  res.json(session.passport.user);
+  if(session)
+    res.json(session.passport.user);
+  else
+    res.json
 });
 
 app.get('/games', (req, res) => {
@@ -96,19 +101,15 @@ app.get('/games', (req, res) => {
   const steamid = session.passport.user.id;
   const include_appinfo = true;
 
-  const URL = `/IPlayerService/GetOwnedGames/v1/?key=${key}&steamid=${steamid}&include_appinfo=${include_appinfo}&format=json`;
+  const URL = `http://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${key}&steamid=${steamid}&include_appinfo=${include_appinfo}&format=json`;
 
-  var options = {
-    host: 'http://api.steampowered.com',
-    path: URL,
-    method: 'GET'
-  };
-
-  http.request(options, (res) => {
-    console.log(res);
-  }).on('error', err => {
-    console.log('Error: ', err.message);
-  });
+  axios.get(URL)
+    .then(response => {
+      console.log(response.data);
+    })
+    .catch(error => {
+      console.log(error);
+    })
 })
 
 // catch 404 and forward to error handler

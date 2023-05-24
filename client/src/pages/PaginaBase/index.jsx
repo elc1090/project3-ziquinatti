@@ -1,9 +1,10 @@
+import Header from "components/Header";
 import { Outlet } from "react-router-dom";
 
 export default function PaginaBase() {
     return(
         <main>
-            <h1>MY STEAM</h1>
+            <Header />
             <Outlet />
         </main>
     );

@@ -17,10 +17,10 @@ export default function Profile() {
             console.log(dados.response.games);
         }
 
-        fetchData()
-            .then(dados => setUser(dados));
+        // fetchData()
+        //     .then(dados => setUser(dados));
 
-        fetchGames()
+        // fetchGames()
     }, []);
 
     return(
