@@ -4,6 +4,10 @@
   --blue: #1B2838;
   --light-blue: #213E59;
   --dark-blue: #101924;
+  --red: #780000;
+  --light-red: #a90000;
+  --green: #007800;
+  --light-green: #00a900;
 }
 
 body {

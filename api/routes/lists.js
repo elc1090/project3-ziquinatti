@@ -24,7 +24,7 @@ router.get("/:idSteam", async function(req, res, next) {
     console.log("ID STEAM:", req.params);
     console.log("READ ONE");
     let collection = await db.collection("lists");
-    let query = { idSteam: req.params.idSteam };
+    let query = { steamid: req.params.idSteam };
     let result = await collection.findOne(query);
 
     if (!result) res.send("Não Achei").status(404);
@@ -41,16 +41,16 @@ router.post("/", async function(req, res, next) {
 });
 
 //UPDATE
-router.patch("/addgame/:id", async function(req, res, next) {
+router.patch("/update/:idSteam", async function(req, res, next) {
     const db = await connectToDatabase();
 
-    const query = { _id: ObjectId(req.params.id) };
+    const query = { steamid: req.params.idSteam };
     const updates = {
-        $push: { toPlay: req.body }
+        $set: {toPlay: req.body.toPlay}
     };
 
     let collection = await db.collection("lists");
-    let result = await collection.update(query, updates);
+    let result = await collection.updateOne(query, updates);
 
     res.send(result).status(200);
 });

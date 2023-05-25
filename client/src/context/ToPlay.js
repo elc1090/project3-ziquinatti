@@ -31,5 +31,10 @@ export function useToPlay() {
         return setToPlay(novaLista);
     }
 
-    return { toPlay, addToPlay }
+    function deleteToPlay(){
+        let novaLista = [];
+        return setToPlay(novaLista);
+    }
+
+    return { toPlay, addToPlay, deleteToPlay }
 }

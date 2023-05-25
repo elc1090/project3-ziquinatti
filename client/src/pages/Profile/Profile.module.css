@@ -21,13 +21,3 @@
     flex-wrap: wrap;
     justify-content: center;
 }
-
-.biblio{
-    text-align: center;
-    font-size: 1.8em;
-    border-width: 5px;
-    border-style: solid;
-    border-image: linear-gradient(to right, var(--blue), var(--gray), var(--blue)) 100% 1 0 0;
-    padding: 12px 0px;
-    margin: 0px;
-}

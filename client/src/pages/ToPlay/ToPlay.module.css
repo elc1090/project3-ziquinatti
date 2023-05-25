@@ -1,3 +1,37 @@
 .jogos {
-    margin-top: 24px;
+    margin: 24px auto;
+    width: 75%;
+}
+
+.menu {
+    margin: 12px auto;
+    width: 420px;
+}
+
+.save, .delete{
+    font-size: 1.4em;
+    border: none;
+    color: var(--light-gray);
+    padding: 12px;
+    border-radius: 10px;
+    width: 200px;
+    transition-duration: 0.25s;
+}
+
+.save {
+    background-color: var(--green);
+    margin-right: 10px;
+}
+
+.save:hover {
+    background-color: var(--light-green);
+}
+
+.delete{
+    background-color: var(--red);
+    margin-left: 10px;
+}
+
+.delete:hover {
+    background-color: var(--light-red);
 }

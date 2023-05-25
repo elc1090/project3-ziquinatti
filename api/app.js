@@ -81,8 +81,31 @@ app.get('/api/auth/steam', passport.authenticate('steam', {failureRedirect: '/ap
   res.redirect('/api');
 });
 
-app.get('/api/auth/steam/return', passport.authenticate('steam', {failureRedirect: '/api'}), function (req, res) {
+app.get('/api/auth/steam/return', passport.authenticate('steam', {failureRedirect: '/api'}), async function (req, res) {
   session = req.session;
+
+  const steamid = session.passport.user.id;
+  
+  let URL = `${req.protocol}://${req.get('host')}/lists/${steamid}`;
+  let exist = true;
+  await axios.get(URL)
+    .then(response => {
+      if(response.data === 'Não Achei'){
+        exist = false;
+      }
+    }).catch(error => console.log(error))
+  
+  if(!exist){
+    URL = `${req.protocol}://${req.get('host')}/lists/`;
+    let toPlay = [];
+    await axios.post(URL, {
+      steamid, toPlay
+    }).then(resp => {
+      // console.log(resp);
+    })
+  }
+  // console.log('FIM DA REQUEST');
+
   res.redirect('http://localhost:3000/profile');
 });
 
@@ -117,7 +140,7 @@ app.get('/games', (req, res) => {
 app.get('/game/:appId', (req, res) => {
   const appid = req.params.appId;
 
-  const URL = `https://store.steampowered.com/api/appdetails?appids=${appid}`;
+  const URL = `https://store.steampowered.com/api/appdetails?appids=${appid}&l=portuguese`;
 
   axios.get(URL)
     .then(response => {
