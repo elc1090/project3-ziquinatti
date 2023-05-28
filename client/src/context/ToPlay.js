@@ -18,6 +18,10 @@ export default function ToPlayProvider({ children }) {
 export function useToPlay() {
     const { toPlay, setToPlay } = useContext(ToPlayContext);
 
+    function startToPLay(lista){
+        return setToPlay(lista);
+    }
+
     function addToPlay(novoJogo) {
         const repetido = toPlay.some(item => item.appid === novoJogo.appid);
 
@@ -36,5 +40,5 @@ export function useToPlay() {
         return setToPlay(novaLista);
     }
 
-    return { toPlay, addToPlay, deleteToPlay }
+    return { toPlay, addToPlay, deleteToPlay, startToPLay }
 }

@@ -21,8 +21,8 @@ router.get("/", async function(req, res, next) {
 //READ SPECIFIC
 router.get("/:idSteam", async function(req, res, next) {
     const db = await connectToDatabase();
-    console.log("ID STEAM:", req.params);
-    console.log("READ ONE");
+    // console.log("ID STEAM:", req.params);
+    // console.log("READ ONE");
     let collection = await db.collection("lists");
     let query = { steamid: req.params.idSteam };
     let result = await collection.findOne(query);
