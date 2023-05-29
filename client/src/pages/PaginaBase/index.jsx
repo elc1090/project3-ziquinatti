@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom";
 
 export default function PaginaBase() {
     const { usuario, startUser } = useUsuario();
-    const { jogar, startJogar } = useJogar();
+    const { startJogar } = useJogar();
 
     useEffect(() => {
         const fetchData = async () => {

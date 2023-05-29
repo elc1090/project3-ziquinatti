@@ -11,7 +11,7 @@ export default function Header(){
             <nav className={styles.navbar}>
                 <NavLink to={process.env.PUBLIC_URL + '/'}>HOME</NavLink>
                 <NavLink to={process.env.PUBLIC_URL + '/profile'}>PERFIL</NavLink>
-                <NavLink to={process.env.PUBLIC_URL + '/toplay'}>PARA JOGAR</NavLink>
+                <NavLink to={process.env.PUBLIC_URL + '/jogar'}>PARA JOGAR</NavLink>
             </nav>
             { usuario ? 
                 <Link className={styles.login} to="http://localhost:9000/api/logout">LOGOUT</Link> : 

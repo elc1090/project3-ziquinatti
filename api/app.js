@@ -128,19 +128,24 @@ app.get('/api/logout', (req, res) => {
 
 app.get('/games', (req, res) => {
   const key = process.env.API_STEAM_KEY;
-  const steamid = session.passport.user.id;
-  const include_appinfo = true;
 
-  const URL = `http://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${key}&steamid=${steamid}&include_appinfo=${include_appinfo}&format=json`;
+  if(!session.passport)
+    res.json({ message: 'Não está logado' });
+  else{
+    const steamid = session.passport.user.id;
+    const include_appinfo = true;
 
-  axios.get(URL)
-    .then(response => {
-      // console.log(response.data);
-      res.send(response.data);
-    })
-    .catch(error => {
-      console.log(error);
-    })
+    const URL = `http://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${key}&steamid=${steamid}&include_appinfo=${include_appinfo}&format=json`;
+
+    axios.get(URL)
+      .then(response => {
+        // console.log(response.data);
+        res.send(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
 });
 
 app.get('/game/:appId', (req, res) => {
