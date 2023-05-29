@@ -3,9 +3,11 @@ import Title from "components/Title";
 import { useJogar } from "context/Jogar";
 import { useEffect, useState } from "react";
 import styles from "./News.module.css";
+import { useJogos } from "context/Jogos";
 
 export default function News(){
     const { jogar } = useJogar();
+    const { jogos } = useJogos();
 
     const [ jogo1, setJogo1 ] = useState();
     const [ jogo2, setJogo2 ] = useState();
@@ -13,8 +15,6 @@ export default function News(){
 
     useEffect(() => {
         const fetchNews = async (game) => {
-            
-
             const resp = await fetch(`http://localhost:9000/news?game=${game}`)
                 .catch(() => console.log('Ocorreu um erro!'));
             if(resp){

@@ -2,9 +2,10 @@
     background-color: var(--light-blue);
     color: var(--light-gray);
     width: 30%;
+    min-height: 150px;
     padding: 20px;
     box-sizing: border-box;
-    margin: 0 12px;
+    margin: 6px 12px;
     transition-duration: 0.5s;
     text-decoration: none;
     text-align: center;

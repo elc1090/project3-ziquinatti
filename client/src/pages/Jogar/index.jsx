@@ -8,7 +8,7 @@ import NaoLogado from "components/NaoLogado";
 
 export default function Jogar(){
     const { usuario } = useUsuario();
-    const { jogar, addJogar, deleteJogar } = useJogar();
+    const { jogar, deleteJogar } = useJogar();
 
     async function saveJogar(){
         await fetch(`http://localhost:9000/lists/update/${usuario.id}`, {
