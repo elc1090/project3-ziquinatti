@@ -1,0 +1,19 @@
+.intro {
+    text-align: center;
+    padding: 48px;
+
+    border-width: 5px;
+    border-style: solid;
+    border-image: linear-gradient(to right, var(--blue), var(--gray), var(--blue)) 0 1 100% 0;
+    background-image: linear-gradient(to right, var(--blue), var(--light-blue), var(--blue));
+}
+
+.texto {
+    font-size: 1.7em;
+}
+
+.lembrete {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--destaque);
+}

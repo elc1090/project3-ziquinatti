@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import styles from './Profile.module.css';
 import Title from "components/Title";
 import { Link } from "react-router-dom";
+import NaoLogado from "components/NaoLogado";
 
 export default function Profile() {
     const { usuario } = useUsuario();
@@ -48,13 +49,7 @@ export default function Profile() {
                         </div>
                     </div>
                 </>:
-                <>
-                    <div className={styles.notLogin}>
-                        <h2 className={styles.titulo}>OPS! Você não está logado</h2>
-                        <p className={styles.texto}>Realize "Login" para vizualizar seus jogos e montar a sua lista de "Para Jogar"!</p>
-                        <Link className={styles.login} to="http://localhost:9000/api/auth/steam">LOGIN</Link>
-                    </div>
-                </>
+                <NaoLogado />
             }
         </section>
     );

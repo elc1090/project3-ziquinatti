@@ -1,0 +1,7 @@
+.news {
+    background-color: var(--dark-blue);
+    padding: 5px 14px;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}

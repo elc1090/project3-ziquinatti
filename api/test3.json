@@ -1,0 +1,47 @@
+{
+    "appnews": {
+        "appid": 212480,
+        "newsitems": [
+            {
+                "gid": "3594328263104440775",
+                "title": "Midweek Madness - Sonic Mania, 30% - 85% Off",
+                "url": "https://store.steampowered.com/news/44930/",
+                "is_external_url": false,
+                "author": "Valve",
+                "contents": "Save 30% to 85% on all <a href='https://store.steampowered.com/sale/sonic'>Sonic The Hedgehog titles</a> during this week's Midweek Madness*!<br><br>*Offer ends Thursday at 4PM Pacific Time<br><a href=\"http://store.steampowered.com/app/584400/\"><img src=\"https://steamcdn-a.akamaihd.net/steam/apps/584400/capsule_467x181.jpg\" style=\" float: left; margin-right: 12px; height: 181px; width: 467px;\"></a><br><a href=\"http://store.steampowered.com/app/212480/\"><img src=\"https://steamcdn-a.akamaihd.net/steam/apps/212480/capsule_467x181.jpg\" style=\" float: left; margin-right: 12px; height: 181px; width: 467px;\"></a><br><a href=\"http://store.steampowered.com/app/637100/\"><img src=\"https://steamcdn-a.akamaihd.net/steam/apps/637100/capsule_467x181.jpg\" style=\" float: left; margin-right: 12px; height: 181px; width: 467px;\"></a><br><a href=\"http://store.steampowered.com/app/71113/\"><img src=\"https://steamcdn-a.akamaihd.net/steam/apps/71113/capsule_467x181.jpg\" style=\" float: left; margin-right: 12px; height: 181px; width: 467px;\"></a>",
+                "feedlabel": "Announcement",
+                "date": 1539709320,
+                "feedname": "steam_announce",
+                "feed_type": 0,
+                "appid": 71113
+            },
+            {
+                "gid": "2396358621994058673",
+                "title": "Team Sonic Racing coming from Sonic & All-Stars devs",
+                "url": "https://steamstore-a.akamaihd.net/news/externalpost/rps/2396358621994058673",
+                "is_external_url": true,
+                "author": "contact@rockpapershotgun.com (Alice O'Connor)",
+                "contents": "<p><img src=\"https://assets.rockpapershotgun.com/images//2018/05/team-sonic-racing.jpg\" title=\"Sonic: I'm told he can really move but, unfortunately, does also have a bit of an attitude.\" width=\"620\" height=\"300\" class=\"alignnone size-full wp-image-548795\" /></p>\n<p>Sonic is trading in his power sneakers for driving brogues again with a new kart racing game, Team Sonic Racing. Sega today announced the racer, which is coming this winter from Sumo Digital &#8211; the folks behind the unreasonably good <a href=\"https://www.rockpapershotgun.com/tag/sonic-all-stars-racing-transformed/\">Sonic &#038; All-Stars Racing Transformed</a>. Sadly, it seems Team Sonic Racing probably isn&#8217;t another big wacky Sega crossover but hey, it is more racing from Sumo. <a href=\"https://www.rockpapershotgun.com/2018/05/30/team-sonic-racing-announced/#more-548793\" class=\"more-link\">(more&hellip;)</a></p>\n",
+                "feedlabel": "Rock, Paper, Shotgun",
+                "date": 1527694854,
+                "feedname": "rps",
+                "feed_type": 0,
+                "appid": 212480
+            },
+            {
+                "gid": "1010230612839871871",
+                "title": "New DLC Available - Sonic and All-Stars Racing Transformed: Ryo Hazuki",
+                "url": "http://store.steampowered.com/news/12216/",
+                "is_external_url": false,
+                "author": "Valve",
+                "contents": " \n<a href='http://store.steampowered.com/app/271030/'>Ryo Hazuki DLC</a>, all new content for <a href='http://store.steampowered.com/app/212480/'>Sonic &amp; All-Stars Racing Transformed</a> is Now Available on Steam!<br><br>You can now race as Shenmue's <i>Ryo Hazuki</i> alongside other favourite characters in Sonic &amp; All-Stars Racing Transformed!<br><br><a href=\"http://store.steampowered.com/app/271030/\"><img src=\"http://cdn.steampowered.com/v/gfx/apps/271030/capsule_467x181.jpg\" style=\" float: left; margin-right: 12px; height: 181px; width: 467px;\"></a>\t\t\t\t",
+                "feedlabel": "Product Release",
+                "date": 1389722760,
+                "feedname": "steam_release",
+                "feed_type": 0,
+                "appid": 212480
+            }
+        ],
+        "count": 11
+    }
+}

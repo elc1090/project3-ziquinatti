@@ -1,0 +1,24 @@
+.item {
+    background-color: var(--light-blue);
+    color: var(--light-gray);
+    width: 30%;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 0 12px;
+    transition-duration: 0.5s;
+    text-decoration: none;
+    text-align: center;
+}
+
+.item:hover {
+    background-color: var(--light-gray);
+    color: var(--gray);
+}
+
+.item h4{
+    margin: 0;
+}
+
+.item p{
+    margin: 0;
+}

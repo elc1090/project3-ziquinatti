@@ -72,7 +72,7 @@ app.use('/users', usersRouter);
 app.use('/testAPI', testAPIRouter);
 app.use('/lists', listsRouter);
 
-// Routes
+// Routes STEAM
 app.get('/api', (req, res) => {
   res.send(req.user);
 });
@@ -160,6 +160,24 @@ app.get('/game/:appId', (req, res) => {
     .catch(error => {
       console.log(error);
     })
+})
+
+app.get('/news', (req, res) => {
+  let game = req.query.game;
+
+  if(game !== 'null'){
+    // console.log(game);
+    let URL = `https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=${game}&count=3&format=json`;
+
+    axios.get(URL)
+      .then(response => {
+        // console.log(response.data.appnews);
+        res.json(response.data.appnews);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
 })
 
 // catch 404 and forward to error handler

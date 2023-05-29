@@ -4,6 +4,7 @@ import { useJogar } from "context/Jogar";
 import styles from './Jogar.module.css';
 import Title from "components/Title";
 import { useUsuario } from "context/Usuario";
+import NaoLogado from "components/NaoLogado";
 
 export default function Jogar(){
     const { usuario } = useUsuario();
@@ -25,9 +26,9 @@ export default function Jogar(){
 
     return(
         <section>
-            <Title>PARA JOGAR</Title>
             { jogar.length !== 0 ?
                 <>
+                    <Title>PARA JOGAR</Title>
                     <div className={styles.menu}>
                         <button 
                             className={styles.save}
@@ -44,10 +45,7 @@ export default function Jogar(){
                         })}
                     </div>
                 </>:
-                <>
-                    <p>OPS! Sua lista está vazia.</p>
-                    <p> Vá no menu "PROFILE" e adicione os jogos que planeja jogar.</p>
-                </>
+                <NaoLogado />
             }
             
         </section>
