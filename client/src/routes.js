@@ -4,8 +4,8 @@ import Home from 'pages/Home';
 import Profile from 'pages/Profile';
 import UsuarioProvider from 'context/Usuario';
 import JogosProvider from 'context/Jogos';
-import ToPlay from 'pages/ToPlay';
-import ToPlayProvider from 'context/ToPlay';
+import ToPlay from 'pages/Jogar';
+import ToPlayProvider from 'context/Jogar';
 
 function AppRoutes() {
 	return (

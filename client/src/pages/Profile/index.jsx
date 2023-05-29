@@ -7,23 +7,25 @@ import styles from './Profile.module.css';
 import Title from "components/Title";
 
 export default function Profile() {
-    const { usuario, startUser } = useUsuario();
+    const { usuario } = useUsuario();
     const { jogos, loadJogos } = useJogos();
 
     useEffect(() => {
         const fetchGames = async () => {
-            const resp = await fetch('http://localhost:9000/games').catch(err => console.log('Ocorreu um erro!'));
+            const resp = await fetch('http://localhost:9000/games')
+                .catch(() => console.log('Ocorreu um erro!'));
             if(resp){
-                const dados = await resp.json();
-                // console.log(dados.response.games);
-                return dados.response.games;
+                if(resp.status !== 500){
+                    const dados = await resp.json();
+                    return dados.response.games;
+                }
+                return null;
             }
             return null;
         }
 
         fetchGames()
             .then(dados => loadJogos(dados));
-        
     }, []);
 
     return(

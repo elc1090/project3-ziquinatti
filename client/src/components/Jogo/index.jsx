@@ -1,9 +1,9 @@
-import { useToPlay } from 'context/ToPlay';
+import { useJogar } from 'context/Jogar';
 import styles from './Jogo.module.css';
 
 export default function Jogo({ name, appid, img_icon_url}) {
-    const { toPlay, addToPlay } = useToPlay();
-    const inList = toPlay.some((item) => item.appid === appid);
+    const { jogar, addJogar } = useJogar();
+    const inList = jogar.some((item) => item.appid === appid);
 
     return (
         <div className={styles.jogo}>
@@ -13,7 +13,7 @@ export default function Jogo({ name, appid, img_icon_url}) {
             </div>
             <button
                 onClick={() => {
-                    addToPlay({appid});
+                    addJogar({appid});
                 }}
             >{inList? "-" : "+"}</button>
         </div>

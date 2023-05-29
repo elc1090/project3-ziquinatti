@@ -1,12 +1,12 @@
 import Header from "components/Header";
-import { useToPlay } from "context/ToPlay";
+import { useJogar } from "context/Jogar";
 import { useUsuario } from "context/Usuario";
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 
 export default function PaginaBase() {
     const { usuario, startUser } = useUsuario();
-    const { toPlay, startToPLay } = useToPlay();
+    const { jogar, startJogar } = useJogar();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -20,26 +20,24 @@ export default function PaginaBase() {
             return null;
         }
 
-        const fetchToPlay = async () => {
-            const resp = await fetch(`http://localhost:9000/lists/${usuario.id}`).catch (error => console.log('Sem jogos!!!'));
+        const fetchJogar = async (id) => {
+            const resp = await fetch(`http://localhost:9000/lists/${id}`).catch (error => console.log('Sem jogos!!!'));
             if(resp){
                 const dados = await resp.json();
-                return dados.toPlay;
+                return dados.jogar;
             }
             return null;
         }
 
         if(!usuario){
             fetchData()
-                .then(dados => startUser(dados))
-        }
-
-        if(usuario){
-            fetchToPlay()
-                .then(dados => console.log(dados))
+                .then(dados => {
+                    startUser(dados);
+                    if(dados)
+                        fetchJogar(dados.id).then(dados => startJogar(dados));
+                })
         }
     }, []);
-
     
     return(
         <main>

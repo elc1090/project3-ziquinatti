@@ -116,9 +116,15 @@ app.get('/api/user', (req, res) => {
     res.json(session.passport.user);
   } else {
     // console.log('Not session')
-    res.json({ message: 'Not session' });
+    res.json({ message: 'Not session!' });
   }
 });
+
+app.get('/api/logout', (req, res) => {
+  session.passport = null;
+  req.session.destroy();
+  res.redirect('http://localhost:3000/');
+})
 
 app.get('/games', (req, res) => {
   const key = process.env.API_STEAM_KEY;

@@ -10,11 +10,11 @@ export default function Header(){
             <h1>MY STEAM</h1>
             <nav className={styles.navbar}>
                 <NavLink to={process.env.PUBLIC_URL + '/'}>HOME</NavLink>
-                <NavLink to={process.env.PUBLIC_URL + '/profile'}>PROFILE</NavLink>
-                <NavLink to={process.env.PUBLIC_URL + '/toplay'}>TO PLAY</NavLink>
+                <NavLink to={process.env.PUBLIC_URL + '/profile'}>PERFIL</NavLink>
+                <NavLink to={process.env.PUBLIC_URL + '/toplay'}>PARA JOGAR</NavLink>
             </nav>
             { usuario ? 
-                <Link className={styles.login} to="/">LOGOUT</Link> : 
+                <Link className={styles.login} to="http://localhost:9000/api/logout">LOGOUT</Link> : 
                 <Link className={styles.login} to="http://localhost:9000/api/auth/steam">LOGIN</Link>
             }
         </header>

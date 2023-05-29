@@ -46,7 +46,7 @@ router.patch("/update/:idSteam", async function(req, res, next) {
 
     const query = { steamid: req.params.idSteam };
     const updates = {
-        $set: {toPlay: req.body.toPlay}
+        $set: {jogar: req.body.jogar}
     };
 
     let collection = await db.collection("lists");

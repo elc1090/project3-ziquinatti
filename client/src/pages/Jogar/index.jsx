@@ -1,19 +1,19 @@
 import JogoDetalhes from "components/JogoDetalhes";
-import { useToPlay } from "context/ToPlay";
+import { useJogar } from "context/Jogar";
 
-import styles from './ToPlay.module.css';
+import styles from './Jogar.module.css';
 import Title from "components/Title";
 import { useUsuario } from "context/Usuario";
 
-export default function ToPlay(){
+export default function Jogar(){
     const { usuario } = useUsuario();
-    const { toPlay, addToPlay, deleteToPlay } = useToPlay();
+    const { jogar, addJogar, deleteJogar } = useJogar();
 
-    async function saveToPlay(){
+    async function saveJogar(){
         await fetch(`http://localhost:9000/lists/update/${usuario.id}`, {
             method: 'PATCH',
             body: JSON.stringify({
-                toPlay,
+                jogar,
             }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
@@ -26,20 +26,20 @@ export default function ToPlay(){
     return(
         <section>
             <Title>PARA JOGAR</Title>
-            { toPlay.length !== 0 ?
+            { jogar.length !== 0 ?
                 <>
                     <div className={styles.menu}>
                         <button 
                             className={styles.save}
-                            onClick={saveToPlay}
+                            onClick={saveJogar}
                         >Salvar Lista</button>
                         <button
                             className={styles.delete}
-                            onClick={deleteToPlay}
+                            onClick={deleteJogar}
                         >Deletar Lista</button>
                     </div>
                     <div className={styles.jogos}>
-                        {toPlay.map((jogo) => {
+                        {jogar.map((jogo) => {
                             return <JogoDetalhes {...jogo} key={jogo.appid}/>;
                         })}
                     </div>
