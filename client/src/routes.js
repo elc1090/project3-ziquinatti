@@ -9,7 +9,8 @@ import JogarProvider from 'context/Jogar';
 
 function AppRoutes() {
 	return (
-		<BrowserRouter basename={process.env.PUBLIC_URL}>
+		// <BrowserRouter basename={process.env.PUBLIC_URL}>
+		<BrowserRouter>
 			<UsuarioProvider>
 				<JogosProvider>
 					<JogarProvider>
