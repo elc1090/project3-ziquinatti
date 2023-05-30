@@ -7,7 +7,7 @@ export default function JogoDetalhes({ appid }) {
 
     useEffect(() => {
         const fetchGames = async () => {
-            const resp = await fetch(`http://localhost:9000/game/${appid}`);
+            const resp = await fetch(`https://my-steam-api.herokuapp.com/game/${appid}`);
 
             const dados = await resp.json();
             // console.log(dados[`${appid}`].data);

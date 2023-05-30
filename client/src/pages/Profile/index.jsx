@@ -14,7 +14,7 @@ export default function Profile() {
 
     useEffect(() => {
         const fetchGames = async () => {
-            const resp = await fetch('http://localhost:9000/games')
+            const resp = await fetch('https://my-steam-api.herokuapp.com/games')
                 .catch(() => console.log('Ocorreu um erro!'));
             if(resp){
                 const dados = await resp.json();

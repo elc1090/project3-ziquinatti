@@ -10,7 +10,7 @@ export default function PaginaBase() {
 
     useEffect(() => {
         const fetchData = async () => {
-            const resp = await fetch('http://localhost:9000/api/user').catch(() => console.log("Falha na conexão"));
+            const resp = await fetch('https://my-steam-api.herokuapp.com/api/user').catch(() => console.log("Falha na conexão"));
             if(resp){
                 const dados = await resp.json();
                 if(dados.message)
@@ -21,7 +21,7 @@ export default function PaginaBase() {
         }
 
         const fetchJogar = async (id) => {
-            const resp = await fetch(`http://localhost:9000/lists/${id}`).catch (error => console.log('Sem jogos!!!'));
+            const resp = await fetch(`https://my-steam-api.herokuapp.com/lists/${id}`).catch (error => console.log('Sem jogos!!!'));
             if(resp){
                 const dados = await resp.json();
                 return dados.jogar;

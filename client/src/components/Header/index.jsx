@@ -14,8 +14,8 @@ export default function Header(){
                 <NavLink to={process.env.PUBLIC_URL + '/jogar'}>PARA JOGAR</NavLink>
             </nav>
             { usuario ? 
-                <Link className={styles.login} to="http://localhost:9000/api/logout">LOGOUT</Link> : 
-                <Link className={styles.login} to="http://localhost:9000/api/auth/steam">LOGIN</Link>
+                <Link className={styles.login} to="https://my-steam-api.herokuapp.com/api/logout">LOGOUT</Link> : 
+                <Link className={styles.login} to="https://my-steam-api.herokuapp.com/api/auth/steam">LOGIN</Link>
             }
         </header>
     );

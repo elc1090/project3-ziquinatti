@@ -11,7 +11,7 @@ export default function Jogar(){
     const { jogar, deleteJogar } = useJogar();
 
     async function saveJogar(){
-        await fetch(`http://localhost:9000/lists/update/${usuario.id}`, {
+        await fetch(`https://my-steam-api.herokuapp.com/lists/update/${usuario.id}`, {
             method: 'PATCH',
             body: JSON.stringify({
                 jogar,

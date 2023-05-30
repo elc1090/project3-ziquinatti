@@ -15,7 +15,7 @@ export default function News(){
 
     useEffect(() => {
         const fetchNews = async (game) => {
-            const resp = await fetch(`http://localhost:9000/news?game=${game}`)
+            const resp = await fetch(`https://my-steam-api.herokuapp.com/news?game=${game}`)
                 .catch(() => console.log('Ocorreu um erro!'));
             if(resp){
                 const dados = await resp.json();
