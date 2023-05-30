@@ -22,8 +22,8 @@ passport.deserializeUser((user, done) => {
 });
 
 passport.use(new SteamStrategy({
-  returnURL: 'http://localhost:9000/api/auth/steam/return',
-  realm: 'http://localhost:9000/',
+  returnURL: 'https://my-steam-api.herokuapp.com/api/auth/steam/return',
+  realm: 'https://my-steam-api.herokuapp.com/',
   apiKey: process.env.API_STEAM_KEY
   }, function (identifier, profile, done) {
     process.nextTick(function () {
@@ -106,7 +106,7 @@ app.get('/api/auth/steam/return', passport.authenticate('steam', {failureRedirec
   }
   // console.log('FIM DA REQUEST');
 
-  res.redirect('http://localhost:3000/profile');
+  res.redirect('https://my-steam.netlify.app/profile');
 });
 
 app.get('/api/user', (req, res) => {
@@ -123,7 +123,7 @@ app.get('/api/user', (req, res) => {
 app.get('/api/logout', (req, res) => {
   session.passport = null;
   req.session.destroy();
-  res.redirect('http://localhost:3000/');
+  res.redirect('https://my-steam.netlify.app/');
 })
 
 app.get('/games', (req, res) => {
